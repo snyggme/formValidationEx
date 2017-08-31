@@ -134,7 +134,7 @@ function MyForm (formId, btnId, fioName, emailName, phoneName) {
 			validity.isValid = false;
 			validity.errorFields.push('fio input');
 
-			invalidityDescription.push('FIO input must contain three words separate with spaces');  			
+			invalidityDescription.push('Fio input must contain three words separate with spaces');  			
 		// checking if we have numbers in fio input or not
 		} else if (fio.value.match(/\d/g) != null) {
 			
@@ -147,7 +147,7 @@ function MyForm (formId, btnId, fioName, emailName, phoneName) {
 
 			validity.isValid = false;
 
-			invalidityDescription.push('FIO input must contain no numbers'); 
+			invalidityDescription.push('Fio input must contain no numbers'); 
 		}
 
 		var emailAt = email.value.indexOf('@');
@@ -158,7 +158,19 @@ function MyForm (formId, btnId, fioName, emailName, phoneName) {
 			validity.isValid = false;
 			validity.errorFields.push('e-mail input');
 
-			invalidityDescription.push('EMAIL input must contain @ sign');
+			invalidityDescription.push('Email input must contain @ sign');
+		// check if we have 2 or more symbols in email name
+		} else if (emailAt < 2) {
+			email.classList.add('error'); 
+
+			if (validity.errorFields[validity.errorFields.length - 1] == 'e-mail input'){
+				validity.errorFields[validity.errorFields.length - 1] = 'e-mail input';
+			} else 
+				validity.errorFields.push('e-mail input');
+
+			validity.isValid = false;
+
+			invalidityDescription.push('Email name should contain at least 2 symbols');
 		} else {
 			count = 0;
 			// if we have '@' continue validation of email input
@@ -181,7 +193,7 @@ function MyForm (formId, btnId, fioName, emailName, phoneName) {
 
 				validity.isValid = false;
 
-				invalidityDescription.push('EMAIL input must contain only allowable domains');
+				invalidityDescription.push('Email input must contain only allowable domains');
 			}
 		}
 		// passing only +7(999)999-99-99 format
