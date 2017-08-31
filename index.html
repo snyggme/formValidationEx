@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>NodeJS EDU</title>
+        <style>
+            body {
+                font-family: Arial;
+            }
+            .container {
+                width: 300px;
+                padding-top: 50px;
+                margin: 0 auto;
+            }
+            #myForm input {
+                font-size: 16px;
+                display: block;
+                width: 100%;
+                height: 50px;
+                margin-top: 5px;
+                padding-left: 15px;
+                margin-bottom: 25px;
+                box-sizing: border-box;
+            }
+            #myForm input[type="submit"] {
+                background-color: #F7DE3B;
+                border: none;
+                outline: none;
+            }
+            #myForm input[type="submit"]:active {
+                background-color: #E8D13A;
+                color: red;
+            }
+            #myForm input:focus[type="text"] {
+                border: 2px solid #6451d5;
+            }
+            #resultContainer {
+                width: 300px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .success {
+                border: 1px solid green;
+            }
+            .error {
+                border:1px solid red;
+            }
+            .progress {
+                border: 1px solid blue;
+            }
+        </style>
+    </head>
+<body>
+    <div class="container">
+        <form  id="myForm" action="json/success.json" method="GET">
+            <label>ФИО:<input type="text" name="fio" placeholder="Представьтесь, пожалуйста"></label>
+            <label>E-mail:<input type="text" name="email" placeholder="Введите адрес электронной почты"></label>
+            <label>Телефон:<input type="text" name="phone" placeholder="Введите номер телефона"></label>
+            <input type="submit" id="submitButton" value="Отправить">
+        </form>
+        <div id ="resultContainer"></div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
